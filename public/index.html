@@ -4,9 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Title</title>
+    <title>URL Shortener</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="main.js"></script>
 
@@ -14,7 +17,20 @@
 
 <body>
     <div class="container">
-        <h1>Title</h1>
+        <h3>URL Shortener</h3>
+        <form action="/api/shorten">
+            <div class="input-field" id="field">
+                <input type="text" name="longURL" id="longURL" autocomplete="url">
+                <label for="longURL">Long URL</label>
+                <button id="submit" class="btn-floating pulse indigo waves-effect waves-light">
+                    <i class="material-icons">content_cut</i>
+                </button>
+            </div>
+            <div id="output">
+                <label for="shortURL">Your Short URL:</label>
+                <h6 id="shortURL">localhost:3000/shortURL</h6>
+            </div>
+        </form>
     </div>
 </body>
 

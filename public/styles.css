@@ -1,0 +1,16 @@
+#longURL {
+    display: inline-block;
+    width: 90%;
+}
+
+#submit {
+    margin: 15px;
+}
+
+#field {
+    margin-top: 30px;
+}
+
+#shortURL {
+    margin-top: 5px;
+}
