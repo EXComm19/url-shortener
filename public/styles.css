@@ -1,10 +1,11 @@
 #longURL {
     display: inline-block;
-    width: 90%;
+    margin-right: 2%; 
+    width: 80%;
 }
 
 #submit {
-    margin: 15px;
+    display: inline;
 }
 
 #field {

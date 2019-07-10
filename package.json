@@ -12,7 +12,8 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "mongodb": "^3.2.7"
+    "nedb": "^1.8.0",
+    "shortid": "^2.2.14"
   },
   "devDependencies": {},
   "repository": {
