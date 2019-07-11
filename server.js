@@ -17,7 +17,7 @@ app.post('/api/shorten', (req, res) => {
     const data = {
         shortCode,
         longURL,
-        shortURL: `https://www.excomm19.com/${shortCode}`
+        shortURL: `http://www.excomm19.com/${shortCode}`
     };
     db.insert(data);
 
@@ -28,7 +28,7 @@ app.get('/:shortURL', function (req, res) {
     shortURL = req.params.shortURL
     db.findOne({ shortCode: shortURL }, (err, docs) => {
         if (err) {
-            res.redirect(404, 'https://www.excomm19.com/');
+            res.redirect(404, 'http://www.excomm19.com/');
         }
         try {
             url = docs.longURL
@@ -38,7 +38,7 @@ app.get('/:shortURL', function (req, res) {
             res.status(200).redirect(url);
 
         } catch (err) {
-            res.redirect(404, 'https://www.excomm19.com/');
+            res.redirect(404, 'http://www.excomm19.com/');
         }
     })
 })
