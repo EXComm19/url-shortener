@@ -10,14 +10,10 @@ window.onload = function () {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data),
             }
-            console.log(data);
             fetch('/api/shorten', option).then((res) => {
                 res.json().then((data) => {
                     document.getElementById('shortURL').textContent = data.shortURL
-                    console.log(data.shortURL);
-                    
                 })
-
             })
         }
     })
