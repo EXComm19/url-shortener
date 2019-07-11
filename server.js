@@ -17,7 +17,7 @@ app.post('/api/shorten', (req, res) => {
     const data = {
         shortCode,
         longURL,
-        shortURL: `http://localhost:3000/${shortCode}`
+        shortURL: `https://url---shortener.herokuapp.com/${shortCode}`
     };
     db.insert(data);
     console.log(data);
@@ -29,7 +29,7 @@ app.get('/:shortURL', function (req, res) {
     shortURL = req.params.shortURL
     db.findOne({ shortCode: shortURL }, (err, docs) => {
         if (err) {
-            res.redirect(404, 'http://localhost');
+            res.redirect(404, 'https://url---shortener.herokuapp.com/');
         }
         try {
             url = docs.longURL
@@ -40,7 +40,7 @@ app.get('/:shortURL', function (req, res) {
             res.status(200).redirect(url);
 
         } catch (err) {
-            res.redirect(404, 'http://localhost:3000');
+            res.redirect(404, 'https://url---shortener.herokuapp.com/');
         }
 
 
