@@ -17,20 +17,32 @@ app.post('/api/shorten', (req, res) => {
     const data = {
         shortCode,
         longURL,
-        shortURL: `http://localhost:3000/shorten/${shortCode}`
+        shortURL: `http://localhost:3000/${shortCode}`
     };
     db.insert(data);
+    console.log(data);
 
     res.status(200).json(data);
 });
 
-app.get('/shorten/:shortURL', function (req, res) {
+app.get('/:shortURL', function (req, res) {
     shortURL = req.params.shortURL
-    db.find({ shortCode: shortURL }, (err, docs) => {
-        const longURL = docs.longURL;
-        if (!err) {
-            return res.status(200).redirect(longURL);
-        } else { res.status(404).json("Invalid URL"); }
+    db.findOne({ shortCode: shortURL }, (err, docs) => {
+        if (err) {
+            res.redirect(404, 'http://localhost');
+        }
+        try {
+            url = docs.longURL
+            console.log(url);
+            if (!url.includes('http')) {
+                url = `http://${url}`
+            }
+            res.status(200).redirect(url);
+
+        } catch (err) {
+            res.redirect(404, 'http://localhost:3000');
+        }
+
 
     })
 })
